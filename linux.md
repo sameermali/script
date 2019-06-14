@@ -40,3 +40,17 @@ curl -v -o output.tar http://artifactory.com/xyz.tar
 echo "hello world" | awk "{print $2}"  // prints world
 ```
 
+## sed
+```
+// replace text in input file and create output file
+sed '/s/search-string/replace-string/g' input.txt > output.txt
+s: substitute
+g: all matching occurances (not just first one)
+
+// replace text in-place in file
+sed -i '/s/search-string/replace-string/g' input.txt > output.txt
+i: in-place replacement
+
+// using variables in sed
+sed -i "/s/${search-string}/${replace-string}/g" input.txt > output.txt
+```
