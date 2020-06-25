@@ -18,6 +18,9 @@ echo $0
 
 # permission to directory recursively
 chmod -R 755 dirname
+
+# grep for keyword recursively in sub-directories
+grep -r keyword .
 ```
 
 ## ps
