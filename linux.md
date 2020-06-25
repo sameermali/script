@@ -21,6 +21,7 @@ chmod -R 755 dirname
 
 # grep for keyword recursively in sub-directories
 grep -r keyword .
+grep -r --exclude-dir={dir1,dir2} keyword .
 ```
 
 ## ps
