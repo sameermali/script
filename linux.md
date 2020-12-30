@@ -79,4 +79,3 @@ i: in-place replacement
 // using variables in sed
 sed -i "/s/${search-string}/${replace-string}/g" input.txt > output.txt
 ```
-comm file1.sorted file2.sorted
