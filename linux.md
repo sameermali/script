@@ -22,6 +22,27 @@ chmod -R 755 dirname
 # grep for keyword recursively in sub-directories
 grep -r keyword .
 grep -r --exclude-dir={dir1,dir2} keyword .
+
+# find total size of current directory
+du -h       // size of files human readable format
+du -ch      // grand total in human readable format
+du -ch -d 1 // sub-folder sizes in current folder 1 is max-depth size
+
+# sum of size of files
+# if list is long there can be more than one total so awk and sum required
+find /some/dir -type f -name *.txt | xargs -r du -ch | grep total | cur -f1 | awk '{total += $1}; END {print total}'
+
+# sort
+sort file.txt > file.sorted
+
+# compare two sorted files (shapeshed.com/unix-comm)
+comm file1.sorted file2.sorted
+comm -i file1.sorted file2.sorted  // case-insensitive
+> file1-unique-value-col  file2-unique-value-col common-value-col
+
+comm -1 file1.sorted file2.sorted // supress 1st col
+comm -2 file1.sorted file2.sorted // supress 2nd col
+comm -3 file1.sorted file2.sorted // supress 3rd col
 ```
 
 ## ps
@@ -58,3 +79,4 @@ i: in-place replacement
 // using variables in sed
 sed -i "/s/${search-string}/${replace-string}/g" input.txt > output.txt
 ```
+comm file1.sorted file2.sorted
