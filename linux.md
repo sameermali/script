@@ -24,9 +24,18 @@ grep -r keyword .
 grep -r --exclude-dir={dir1,dir2} keyword .
 
 # find total size of current directory
-du -h       // size of files human readable format
-du -ch      // grand total in human readable format
-du -ch -d 1 // sub-folder sizes in current folder 1 is max-depth size
+du -h                  // size of files human readable format
+du -ch                 // grand total in human readable format
+du -ch -d 1            // sub-folder sizes in current folder 1 is max-depth size
+du -ch -d 1 | sort -h  // sort by human numeric format
+
+# find examples
+find . -maxdepth 1 -type l -ls   // all symbolic links in current directory
+find . -name "*foo*"             // find all files which have foo in name recursively
+find . -name "*boo*" -exec md5sum '{}' + > checklist.chk  // find md5 sum of each file in directory
+
+# sort 
+sort -h                // human numeric format
 
 # sum of size of files
 # if list is long there can be more than one total so awk and sum required
@@ -54,7 +63,7 @@ ps -ef or ps -eF     // every active process in full format
 ps -x                // display current user running process
 ps -fu userx         // display processes of userx 
 ```
-
+	
 ## curl
 ```
 curl -v -o output.tar http://artifactory.com/xyz.tar
@@ -62,7 +71,7 @@ curl -v -o output.tar http://artifactory.com/xyz.tar
 
 ## awk
 ```
-echo "hello world" | awk "{print $2}"  // prints world
+echo "hello world" | awk '{print $2" "$1}'  // prints world hello
 ```
 
 ## sed
