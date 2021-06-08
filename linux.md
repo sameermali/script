@@ -88,3 +88,8 @@ i: in-place replacement
 // using variables in sed
 sed -i "/s/${search-string}/${replace-string}/g" input.txt > output.txt
 ```
+
+## jar
+```
+jar -tf foo.jar    // see contents of jar file
+```
