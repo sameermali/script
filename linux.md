@@ -2,7 +2,13 @@
 
 ## commands
 ```
-// find permission all folder in path; if any of folders don't have read permission then user cannot read  file.txt 
+# directory and files paths
+pwd                  // current directory
+pwd -P               // current directory with symbolic link resolved
+readlink -f file.txt // full path of file
+realpath file.txt    // full path of file
+
+# find permission all folder in path; if any of folders don't have read permission then user cannot read  file.txt 
 namei -l /home/sam/work/file.txt
 
 # find process using port
